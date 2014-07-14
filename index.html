@@ -16,31 +16,12 @@
 
         <!-- Templates -->
 
-        <script type="text/template" id="map_list_template">
-            <div class="map_list_container">
-                <h2 class="map_name"><%= name %></h2>
-                <button class="edit_map_name">edit</button>
-                <button class="delete_map" data-action="destroy" name="delete_map">X</button>
-            </div>
-        </script>
-        <script type="text/template" class="map_list_display_template">
-            <div class="map_list_container">
-                <h2 class="map_name"><%= name %></h2>
-                <button class="edit_map_name">edit</button>
-                <button class="delete_map" data-action="destroy" name="delete_map">X</button>
-                <div id="map_display_canvas"></div>
-            </div>
-        </script>
-        <script type="text/template" class="edit_map_template">
-            <div class="map_list_container">
-                <form>
-                <h2 class="edit_map_input">
-                <input type="text" placeholder=<%= name %> name="edit_form">
-                </h2>
-                </form>
-                <button class="cancel_button">Cancel</button>
-                <div id="map_display_canvas"></div>
-            </div>
+        <script type="text/template" id="signInTemplate">
+            <form class="signin-form">
+                <input name="email" type="text" placeholder='your email'>
+                <input name="password" type="text" placeholder='password'>
+                <input name="submit-email" type="submit" value="Login" class="">
+            </form>
         </script>
 
         <!-- App -->
@@ -63,22 +44,12 @@
   </head>
 
   <body>
+    <h1>Hello World</h1>
+    <div class='main container'>
 
-    <div class="new_map_form">
-        <form class="new_map_form">
-            <h5>CREATE NEW MAP</h5>
-            <input class="map_name_input" placeholder="PIZZA SPOTS">
-        </form>
+
+
     </div>
-
-    <div id="map-canvas">
-    </div>
-
-    <div class="map_list_div">
-        <ul class="map_list_ul">
-        </ul>
-    </div>
-
   </body>
 
 </html>
