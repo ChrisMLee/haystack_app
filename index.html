@@ -7,6 +7,7 @@
 
         <!-- Stylesheets -->
     <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
 
         <!-- Libraries -->
      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
@@ -16,12 +17,27 @@
 
         <!-- Templates -->
 
-        <script type="text/template" id="signInTemplate">
-            <form class="signin-form">
-                <input name="email" type="text" placeholder='your email'>
-                <input name="password" type="text" placeholder='password'>
-                <input name="submit-email" type="submit" value="Login" class="">
-            </form>
+        <script type="text/template" id="logInTemplate">
+            <div class="welcome-block section">
+                <form class="login-form">
+                    <input name="email" type="text" placeholder='your email'>
+                    <input name="password" type="text" placeholder='password'>
+                    <input name="submit" type="submit" value="login">
+                </form>
+                <a href="#/sign_up" class='signup-link'>Sign Up</a>
+            </div>
+        </script>
+
+        <script type="text/template" id="signUpTemplate">
+            <div class="welcome-block section">
+                <form class="signup-form">
+                    <input name="email" type="text" placeholder='your email'>
+                    <input name="password" type="text" placeholder='password'>
+                    <input name="password_confirmation" type="text" placeholder='password confirmation'>
+                    <input name="submit" type="submit" value="Sign Up">
+                </form>
+                <a href="#" class='login-link'>Log In</a>
+            </div>
         </script>
 
         <!-- App -->
@@ -44,11 +60,11 @@
   </head>
 
   <body>
-    <h1>Hello World</h1>
-    <div class='main container'>
-
-
-
+    <div class='container'>
+        <a href="#nav" class="menu">Menu</a>
+        <div class="main">
+        </div>
+        <a href="#bottom" class="bottom-nav">Menu</a>
     </div>
   </body>
 

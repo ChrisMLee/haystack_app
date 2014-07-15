@@ -30,36 +30,102 @@ var Haystack = Haystack || { Models: {}, Collections: {}, Views: {} };
 
 var Router = Backbone.Router.extend({
       routes:{
-        '' : 'home'
+        '' : 'home',
+        'sign_up' : 'sign_up'
       }
     });
 
 $(function() {
 
   $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
-    options.url = 'http://serene-dawn-6520.herokuapp.com' + options.url;
+    options.url = 'https://serene-dawn-6520.herokuapp.com' + options.url;
   });
 
-  var signInView = Backbone.View.extend({
-                el: '.main',
-                render: function(){
-                  var template = _.template($('#signInTemplate').html());
-                  this.$el.append(template);
-                }
-              });
+  var logInView = Backbone.View.extend({
+    el: '.main',
+    render: function(){
+      this.$el.empty();
+      var template = _.template($('#logInTemplate').html());
+      this.$el.append(template);
+    },
+    events: {
+      'submit .login-form': 'attemptLogin',
+      'click .signup-link' : 'signUpPage'
+    },
+    attemptLogin: function(ev){
+      var userCredentials = $(ev.currentTarget).serializeObject();
+      // user.save(userDetails, {
+      //   success: function(user){
+      //     router.navigate('', {trigger: true});
+      //   }
+      // })
+      console.log(userCredentials);
+      $.ajax({
+        url:'/sessions',
+        type:'POST',
+        dataType:"jsonp",
+        data: userCredentials,
+        success:function (data) {
+          console.log(data);
+        }
+      });
+      // console.log(userCredentials);
+      return false;
+    },
+    signUpPage: function(ev){
+      router.navigate('sign_up', {trigger: true});
+    }
+  });
 
+  /// Sign Up View ///
+  var signUpView = Backbone.View.extend({
+    el: '.main',
+    render: function(){
+      this.$el.empty();
+      var template = _.template($('#signUpTemplate').html());
+      this.$el.append(template);
+    },
+    events: {
+      'click .login-link' : 'logInPage'
+    },
+    logInPage: function(ev){
+      router.navigate('home', {trigger: true});
+    }
+  })
+
+
+  /// Serialize Object ///
+
+  $.fn.serializeObject = function() {
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+  };
+
+  /// Router ///
   var router = new Router();
 
   router.on('route:home', function() {
     console.log("you are home!");
-    signIn = new signInView();
-    signIn.render();
+    var logIn = new logInView();
+    logIn.render();
+  });
+
+  router.on('route:sign_up', function() {
+    console.log("you are at sign up!");
+    var signUp = new signUpView();
+    signUp.render();
   });
 
   Backbone.history.start();
 });
-
-
-
-
-  // $('.main').append( "<p>Test</p>" );

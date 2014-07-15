@@ -1,3 +1,7 @@
+/*.signup-link{
+  cursor: pointer;
+}*/
+
 /*        #map-canvas {
         height: 500px;
         width: 500px;
@@ -53,3 +57,78 @@
     text-align: center;
     }
 */
+
+.main{
+  margin: 0;
+  padding: 0;
+}
+
+.section, .menu{
+    margin: 1.5em;
+    background-color: whitesmoke;
+    border: 1px solid gainsboro;
+    text-align: center;
+    color: silver;
+}
+
+.menu {
+    position: absolute;
+    margin: 0;
+    top: 0;
+    right: 0;
+    background-color: gainsboro;
+    padding: 1.1em;
+    color: steelblue;
+    width: 100%;
+}
+
+.bottom-nav {
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+    right: 0;
+    background-color: gainsboro;
+    padding: 1.3em;
+    color: steelblue;
+    width: 100%;
+}
+
+input[type=text] {
+border: 1px solid #dadfe1;
+background: white;
+}
+
+input {
+border: none;
+outline: none;
+background: white;
+font-size: 14px;
+font-weight: 500;
+color: #3e474c;
+line-height: 1em;
+padding: 1em 1.1em;
+-webkit-border-radius: 0.25em;
+-moz-border-radius: 0.25em;
+-ms-border-radius: 0.25em;
+-o-border-radius: 0.25em;
+border-radius: 0.25em;
+display: block;
+margin: 0 auto;
+}
+
+input[type=submit] {
+width: 100%;
+background: #e96e57;
+margin: 10px auto 0 auto;
+display: block;
+}
+
+input[type=submit]:hover{
+background: #d5645a;
+}
+
+.welcome-block {
+  padding: 1em;
+  margin-top: 5em;
+  height: 100%;
+}
